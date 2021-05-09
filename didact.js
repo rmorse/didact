@@ -16,7 +16,7 @@ function createTextElement(text) {
   return {
     type: "TEXT_ELEMENT",
     props: {
-      nodeValue: text,
+      textContent: text,
       children: [],
     },
   }
@@ -25,7 +25,7 @@ function createTextElement(text) {
 function createDom(fiber) {
   const dom =
     fiber.type == "TEXT_ELEMENT"
-      ? document.createTextNode("")
+      ? document.createElement('span')
       : document.createElement(fiber.type)
 
   updateDom(dom, {}, fiber.props)
